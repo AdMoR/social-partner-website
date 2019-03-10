@@ -1,4 +1,7 @@
 GET         /                                        controllers.HomeController.home
+GET         /test                                    controllers.HomeController.test
+
+
 GET         /ping                                    controllers.HomeController.ping(timestamp: Long)
 GET         /robots.txt                              controllers.HomeController.robots
 

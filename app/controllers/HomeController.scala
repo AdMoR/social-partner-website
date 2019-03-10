@@ -17,6 +17,10 @@ class HomeController @javax.inject.Inject() (override val app: Application) exte
     Future.successful(Ok(views.html.index(request.identity, app.config.debug)))
   }
 
+  def test() = withSession("home") { implicit request => implicit td =>
+    Future.successful(Ok(views.html.home(request.identity, app.config.debug)))
+  }
+
   def externalLink(url: String) = withSession("external.link") { implicit request => implicit td =>
     Future.successful(Redirect(if (url.startsWith("http")) { url } else { "http://" + url }))
   }
@@ -28,4 +32,5 @@ class HomeController @javax.inject.Inject() (override val app: Application) exte
   def robots() = withSession("robots") { implicit request => implicit td =>
     Future.successful(Ok("User-agent: *\nDisallow: /"))
   }
+
 }
