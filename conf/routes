@@ -1,5 +1,7 @@
+GET         /test                                    controllers.HomeController.old_home
+GET         /popo                                    controllers.HomeController.popo
 GET         /                                        controllers.HomeController.home
-GET         /test                                    controllers.HomeController.test
+GET         /listing                                 controllers.HomeController.listing
 
 
 GET         /ping                                    controllers.HomeController.ping(timestamp: Long)
@@ -23,6 +25,7 @@ GET         /robots.txt                              controllers.HomeController.
 ->          /admin/settings                          settings.Routes
 ->          /admin/sync                              sync.Routes
 ->          /admin/task                              task.Routes
+
 # End model route files
 
 # Assets

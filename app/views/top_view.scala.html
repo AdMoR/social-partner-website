@@ -1,4 +1,4 @@
-@(title: String = "The Best City", hasSearch: Boolean = true)
+@(title: String = "The Best City", hasSearch: Boolean = true, image_paths: Seq[String] = Seq("index.jpg", "index.jpg"))
 
 
   <!-- Home -->
@@ -9,9 +9,10 @@
     <div class="home_slider_container">
       <div class="owl-carousel owl-theme home_slider">
 
+        @for(img_path <- image_paths){
         <!-- Slide -->
         <div class="slide">
-          <div class="background_image" style="background-image:url(/assets/images/index.jpg)"></div>
+          <div class="background_image" style="background-image:url(/assets/images/@img_path)"></div>
           <div class="home_container">
             <div class="container">
               <div class="row">
@@ -35,60 +36,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Slide -->
-        <div class="slide">
-          <div class="background_image" style="background-image:url(/assets/images/index.jpg)"></div>
-          <div class="home_container">
-            <div class="container">
-              <div class="row">
-                <div class="col-xl-8 offset-xl-2">
-                  <div class="home_content text-center">
-                    <div class="home_title"><h1>@title</h1></div>
-
-                    @if(hasSearch) {
-                    <div class="search_form_container">
-                      <form action="#" class="search_form" id="search_form">
-                        <div class="d-flex flex-sm-row flex-column align-items-sm-start align-items-center justify-content-sm-between">
-                          <input type="text" class="search_input" placeholder="What are you looking for?" required="required">
-                          <button class="search_button">Search</button>
-                        </div>
-                      </form>
-                    </div>
-                    }
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide -->
-        <div class="slide">
-          <div class="background_image" style="background-image:url(/assets/images/index.jpg)"></div>
-          <div class="home_container">
-            <div class="container">
-              <div class="row">
-                <div class="col-xl-8 offset-xl-2">
-                  <div class="home_content text-center">
-                    <div class="home_title"><h1>@title</h1></div>
-
-                    @if(hasSearch) {
-                    <div class="search_form_container">
-                      <form action="#" class="search_form" id="search_form">
-                        <div class="d-flex flex-sm-row flex-column align-items-sm-start align-items-center justify-content-sm-between">
-                          <input type="text" class="search_input" placeholder="What are you looking for?" required="required">
-                          <button class="search_button">Search</button>
-                        </div>
-                      </form>
-                    </div>
-                    }
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        }
 
 
       </div>

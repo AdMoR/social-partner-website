@@ -13,12 +13,20 @@ import scala.concurrent.Future
 class HomeController @javax.inject.Inject() (override val app: Application) extends AuthController("home") {
   ApplicationDatabase.migrateSafe()
 
-  def home() = withSession("home") { implicit request => implicit td =>
+  def old_home() = withSession("home") { implicit request => implicit td =>
     Future.successful(Ok(views.html.index(request.identity, app.config.debug)))
   }
 
-  def test() = withSession("home") { implicit request => implicit td =>
-    Future.successful(Ok(views.html.home(request.identity, app.config.debug)))
+  def home() = withoutSession("home") { implicit request => implicit td =>
+    Future.successful(Ok(views.html.home(null /*request.identity*/ , app.config.debug)))
+  }
+
+  def listing() = withoutSession("home") { implicit request => implicit td =>
+    Future.successful(Ok(views.html.category()))
+  }
+
+  def popo() = withoutSession("") { implicit request => implicit td =>
+    Future.successful(Ok(views.html.popo()))
   }
 
   def externalLink(url: String) = withSession("external.link") { implicit request => implicit td =>

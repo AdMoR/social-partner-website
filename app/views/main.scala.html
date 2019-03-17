@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("plugins/OwlCarousel2-2.3.4/owl.theme.default.css")">
 <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("plugins/OwlCarousel2-2.3.4/animate.css")">
 <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/main_styles.css")">
+<link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/main.css")">
 <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/responsive.css")">
 </head>
 <body>
@@ -23,52 +24,17 @@
 
 <div class="super_container">
 
-	<!-- Header -->
-
-	<header class="header">
-		<div class="header_overlay"></div>
-		<div class="header_content d-flex flex-row align-items-center justify-content-start">
-
-			<!-- Logo -->
-			<div class="logo"><a href="#">Directory<span>Plus</span><span>+</span></a></div>
-
-			<!-- Header Nav -->
-			<div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
-				<nav class="main_nav">
-					<ul class="d-flex flex-row align-items-center justify-content-start">
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="#">About us</a></li>
-						<li><a href="listings.html">Listings</a></li>
-						<li><a href="blog.html">News</a></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
-				</nav>
-				<div class="add_listing text-center trans_200"><a href="#">+Add Listing</a></div>
-				<div class="log_reg">
-					<ul class="d-flex flex-row align-items-center justify-content-start">
-						<li><a href="#">Login</a></li>
-						<li><a href="#">Register</a></li>
-					</ul>
-				</div>
-				<div class="hamburger">
-					<i class="fa fa-bars trans_200"></i>
-				</div>
-			</div>
-
-		</div>
-	</header>
+    @menu(false)
 
 	<div class="super_container_inner">
 		<div class="super_overlay"></div>
 
-		@top_view("The best", false)
+		@top_view("Animez votre communauté !", false, Seq("2947.jpg"))
 
-    @content
-
+		@content
 
 
 		<!-- Footer -->
-
 		<footer class="footer container_custom">
 			<div class="container">
 				<div class="row">
@@ -93,7 +59,7 @@
 			</div>
 		</footer>
 	</div>
-		
+
 </div>
 
 <script src="@routes.Assets.versioned("javascripts/jquery-3.3.1.min.js")"></script>

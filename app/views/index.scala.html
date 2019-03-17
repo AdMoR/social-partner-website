@@ -1,6 +1,6 @@
 @(user: com.kyleu.projectile.models.user.SystemUser, devmode: Boolean)(
     implicit request: Request[AnyContent], session: Session, flash: Flash, traceData: com.kyleu.projectile.util.tracing.TraceData
-)@traceData.logClass(getClass)@com.kyleu.projectile.views.html.layout.simple(Some(user), util.Config.projectName) {
+)@traceData.logClass(getClass)
   <div class="row">
     <div class="col s12">
       <ul class="collection with-header">
@@ -21,4 +21,4 @@
     </div>
   </div>
   @views.html.components.includeScalaJs(devmode)
-}
+

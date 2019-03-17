@@ -1,10 +1,6 @@
-@(user: com.kyleu.projectile.models.user.SystemUser, devmode: Boolean)(
-implicit request: Request[AnyContent], session: Session, flash: Flash, traceData: com.kyleu.projectile.util.tracing.TraceData
-)@traceData.logClass(getClass)@com.kyleu.projectile.views.html.layout.simple(Some(user), util.Config.projectName) {
+@(user: com.kyleu.projectile.models.user.SystemUser, devmode: Boolean)(implicit request: Request[AnyContent], session: Session, flash: Flash, traceData: com.kyleu.projectile.util.tracing.TraceData)
 
 @main("Index") {
-
-
 
 <!-- Categories -->
 
@@ -19,7 +15,7 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
             <a href="listings.html">
               <div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
                 <div class="cat_icon"><img src="@routes.Assets.versioned("images/icon_1.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
-                <div class="cat_title">Restaurants</div>
+                <div class="cat_title">Mentoring</div>
               </div>
             </a>
           </div>
@@ -28,8 +24,8 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
           <div class="category text-center">
             <a href="listings.html">
               <div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
-                <div class="cat_icon"><img src="@routes.Assets.versioned("images/icon_2.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
-                <div class="cat_title">Hotels</div>
+                <div class="cat_icon"><img src="@routes.Assets.versioned("images/binoculars.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
+                <div class="cat_title">Orientation</div>
               </div>
             </a>
           </div>
@@ -38,8 +34,8 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
           <div class="category text-center">
             <a href="listings.html">
               <div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
-                <div class="cat_icon"><img src="@routes.Assets.versioned("images/icon_3.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
-                <div class="cat_title">Nightlife</div>
+                <div class="cat_icon"><img src="@routes.Assets.versioned("images/mountain.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
+                <div class="cat_title">Carrière</div>
               </div>
             </a>
           </div>
@@ -48,8 +44,8 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
           <div class="category text-center">
             <a href="listings.html">
               <div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
-                <div class="cat_icon"><img src="@routes.Assets.versioned("images/icon_4.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
-                <div class="cat_title">Coffeeshops</div>
+                <div class="cat_icon"><img src="@routes.Assets.versioned("images/mortarboard.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
+                <div class="cat_title">Tutoriaux</div>
               </div>
             </a>
           </div>
@@ -76,13 +72,13 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="section_title text-center"><h1>Explore Hot Locations</h1></div>
+        <div class="section_title text-center"><h1>Trouve ta communauté</h1></div>
         <div class="locations_container d-flex flex-row align-items-start justify-content-between flex-wrap">
 
           <!-- Location -->
           <div class="location">
             <img src="@routes.Assets.versioned("images/location_1.jpg")" alt="">
-            <div class="location_title text-center"><div><a href="single.html">Amsterdam<div>+</div></a></div></div>
+            <div class="location_title text-center"><div><a href="single.html">Montélimar<div>+</div></a></div></div>
           </div>
 
           <!-- Location -->
@@ -94,19 +90,19 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
           <!-- Location -->
           <div class="location">
             <img src="@routes.Assets.versioned("images/location_3.jpg")" alt="">
-            <div class="location_title text-center"><div><a href="single.html">Singapore<div>+</div></a></div></div>
+            <div class="location_title text-center"><div><a href="single.html">Lille<div>+</div></a></div></div>
           </div>
 
           <!-- Location -->
           <div class="location">
             <img src="@routes.Assets.versioned("images/location_4.jpg")" alt="">
-            <div class="location_title text-center"><div><a href="single.html">Chicago<div>+</div></a></div></div>
+            <div class="location_title text-center"><div><a href="single.html">Strasbourg<div>+</div></a></div></div>
           </div>
 
           <!-- Location -->
           <div class="location">
             <img src="@routes.Assets.versioned("images/location_5.jpg")" alt="">
-            <div class="location_title text-center"><div><a href="single.html">New York<div>+</div></a></div></div>
+            <div class="location_title text-center"><div><a href="single.html">Argenteuil<div>+</div></a></div></div>
           </div>
 
         </div>
@@ -121,16 +117,16 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="section_title text-center"><h1>How Directory<span>Plus+</span> works</h1></div>
+        <div class="section_title text-center"><h1>Social <span>Partner</span> en 3 étapes</h1></div>
         <div class="icon_box_container d-flex flex-row align-items-start justify-content-between flex-wrap">
 
           <!-- Icon Box -->
           <div class="icon_box d-flex flex-column align-items-center justify-content-start text-center">
             <div class="icon_box_num">01.</div>
             <div class="icon_box_icon"><img src="@routes.Assets.versioned("images/icon_6.svg")" alt="https://www.flaticon.com/authors/monkik"></div>
-            <div class="icon_box_title">Choose a category</div>
+            <div class="icon_box_title">Trouve ta communauté</div>
             <div class="icon_box_text">
-              <p>Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper neque. Suspendisse quam est</p>
+              <p>Trouve une communauté près de chez toi et suis leurs événements.</p>
             </div>
           </div>
 
@@ -138,9 +134,9 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
           <div class="icon_box d-flex flex-column align-items-center justify-content-start text-center">
             <div class="icon_box_num">02.</div>
             <div class="icon_box_icon"><img src="@routes.Assets.versioned("images/icon_7.svg")" alt="https://www.flaticon.com/authors/monkik"></div>
-            <div class="icon_box_title">Find your pick</div>
+            <div class="icon_box_title">Inscris toi à un événement</div>
             <div class="icon_box_text">
-              <p>Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper neque. Suspendisse quam est</p>
+              <p>Inscris toi à une de leurs actions et aies un vrai impact.</p>
             </div>
           </div>
 
@@ -148,9 +144,9 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
           <div class="icon_box d-flex flex-column align-items-center justify-content-start text-center">
             <div class="icon_box_num">03.</div>
             <div class="icon_box_icon"><img src="@routes.Assets.versioned("images/icon_8.svg")" alt="https://www.flaticon.com/authors/monkik"></div>
-            <div class="icon_box_title">Go & have fun</div>
+            <div class="icon_box_title">Interviens !</div>
             <div class="icon_box_text">
-              <p>Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper neque. Suspendisse quam est</p>
+              <p>Sois part du changement en t'impliquand directement sur l'évément.</p>
             </div>
           </div>
 
@@ -160,7 +156,7 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
   </div>
 </div>
 
-<!-- CTA -->
+<!-- CTA
 
 <div class="cta container_custom">
   <div class="parallax_background" data-image-src="@routes.Assets.versioned("images/cta.jpg")"></div>
@@ -178,8 +174,9 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
   </div>
 </div>
 </div>
+-->
 
-<!-- CTA 2 -->
+<!-- CTA 2
 
 <div class="cta_2">
   <div class="container">
@@ -204,48 +201,5 @@ implicit request: Request[AnyContent], session: Session, flash: Flash, traceData
     </div>
   </div>
 </div>
-
-<!-- Clients -->
-
-<div class="clients">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-
-        <!-- Clients Slider -->
-        <div class="clients_slider_container">
-          <div class="owl-carousel owl-theme clients_slider">
-
-            <!-- Slide -->
-            <div class="slide">
-              <div class="client_image"><a href="#"><img src="@routes.Assets.versioned("images/client_1.jpg")" alt=""></a></div>
-            </div>
-
-            <!-- Slide -->
-            <div class="slide">
-              <div class="client_image"><a href="#"><img src="@routes.Assets.versioned("images/client_2.jpg")" alt=""></a></div>
-            </div>
-
-            <!-- Slide -->
-            <div class="slide">
-              <div class="client_image"><a href="#"><img src="@routes.Assets.versioned("images/client_3.jpg")" alt=""></a></div>
-            </div>
-
-            <!-- Slide -->
-            <div class="slide">
-              <div class="client_image"><a href="#"><img src="@routes.Assets.versioned("images/client_4.jpg")" alt=""></a></div>
-            </div>
-
-            <!-- Slide -->
-            <div class="slide">
-              <div class="client_image"><a href="#"><img src="@routes.Assets.versioned("images/client_5.jpg")" alt=""></a></div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-}
+-->
 }
