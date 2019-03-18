@@ -1,21 +1,52 @@
 # Social Partner website
 
+
+## Starting the project 
+
+- For mac user, most of the dependencies can be installed via [HomeBrew](https://brew.sh/)
+- Download [Intelliji](https://www.jetbrains.com/idea/) with Java, scala, node and sbt
+- Install postgres server (brew install , start it and execute 
+```
+CREATE ROLE boilerplay WITH LOGIN PASSWORD 'boilerplay';
+CREATE DATABASE boilerplay;
+GRANT ALL PRIVILEGES ON DATABASE boilerplay TO boilerplay;
+```
+- From the project directory, start the sbt shell 
+```
+$ sbt
+> run
+$ open http://127.0.0.1:9000
+```
+- You can access the website [on your localhost](http://localhost:9000)
+- Available pages are `/` and `/listing`
+
+## Package used
+- The server uses Scala and Play
+- The front-end is rendered with scala views and bootstrap
+- [BoilerPlay](https://github.com/KyleU/boilerplay) was used as a base for the user management 
+
+## Code structure
+- Available endpoints of the Webserver : routes
+- Page rendering is done via the `HomeController` class. A new function must be added for each new endpoint.
+- Template HTML pages rendered by the server under `app/views/*.scala.html`
+- Static files (css, js) available under `public`. They can be access in template via the `@routes.Assets.versioned()`
+
+
 ## Add a new html page
 
 #### 1. Create a new file in app/views with the format `*.scala.html`
 You can copy the format of `home.scala.html`
 
 A scala.html file has the following format
-```
+```html
 @() <!-- function definition -->
 
 <!-- html code -->
-
 ```
 
 The adavantage of this format is the ability to add parameters to the html when the page is called. Example :
 
-```
+```html
 @(title: String) <!-- function definition -->
 
 <h1> @title </h1>
@@ -24,16 +55,17 @@ The adavantage of this format is the ability to add parameters to the html when 
 This code will create a page with a title defined by the given parameter in input
 
 
+
 #### 2. Reusing bricks
 Another advantage of this format is the usage of a common format for all pages. The file `app/views/main.scala.html` demonstrates it.
 
-```
+```html
 @(title: String)(content: Html)
 ```
 
 The parameters are the title of the webpage and the content of the inner page. Have a look at the screenshot of the following page which uses this simple code.
 
-```
+```html
 @()
 @main("Dummy"){
   <h1> Ok </h1>
