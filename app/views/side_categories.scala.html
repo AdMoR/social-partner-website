@@ -1,0 +1,10 @@
+@(categories: Seq[String] = Seq("New York", "Atlanta", "Arizona", "Florida", "Rocky Beach", "Chicago"), catType: String = "Par localisation")
+
+<div class="single-slidebar">
+    <h4>@catType</h4>
+    <ul class="cat-list">
+        @for(cat <- categories){
+        <li><a class="justify-content-between d-flex" href="category.html"><p>@cat</p><span>Voir</span></a></li>
+        }
+    </ul>
+</div>
