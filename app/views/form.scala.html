@@ -1,0 +1,10 @@
+@(eventForm: Form[Event])
+@import helper._
+
+@main("Créer un événement"){
+
+  @helper.form(action = routes.Application.userPost()) {
+    @helper.inputText(eventForm("name"))
+    @helper.inputText(eventForm("age"))
+  }
+}

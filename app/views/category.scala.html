@@ -24,15 +24,14 @@
 					<div class="row justify-content-center d-flex">
 						<div class="col-lg-8 post-list">
 
-							@single_post()
-							@single_post()
+							@components.single_post()
+							@components.single_post()
 
 						</div>
 						<div class="col-lg-4 sidebar">
 
-							@side_categories()
-
-							@side_categories(Seq("Scolaire", "Coaching", "Networking"), "Par activité")
+							@components.side_categories()
+							@components.side_categories(Seq("Scolaire", "Coaching", "Networking"), "Par activité")
 
 
                             <!-- <div class="single-slidebar">

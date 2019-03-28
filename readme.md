@@ -7,6 +7,12 @@
 - Download [Intelliji](https://www.jetbrains.com/idea/) with Java, scala, node and sbt
 - Install postgres server (brew install , start it and execute 
 ```
+pg_ctl -D /usr/local/var/postgres start
+psql -U boilerplay --password
+\c boilerplay
+\dt
+```
+```
 CREATE ROLE boilerplay WITH LOGIN PASSWORD 'boilerplay';
 CREATE DATABASE boilerplay;
 GRANT ALL PRIVILEGES ON DATABASE boilerplay TO boilerplay;
