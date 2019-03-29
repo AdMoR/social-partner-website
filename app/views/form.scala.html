@@ -1,10 +1,14 @@
-@(eventForm: Form[Event])
+@(eventForm: Form[models.objects.Event])(implicit request: RequestHeader, messagesProvider: MessagesProvider)
+
 @import helper._
 
 @main("Créer un événement"){
 
-  @helper.form(action = routes.Application.userPost()) {
-    @helper.inputText(eventForm("name"))
-    @helper.inputText(eventForm("age"))
+<div class="center-block text-center">
+  @helper.form(routes.HomeController.form) {
+    @helper.inputText(eventForm("name")) @* <- takes a MessagesProvider *@
+    @helper.inputText(eventForm("age"))  @* <- takes a MessagesProvider *@
   }
+</div>
+
 }

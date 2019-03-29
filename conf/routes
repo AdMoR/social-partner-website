@@ -3,6 +3,7 @@ GET         /popo                                    controllers.HomeController.
 GET         /                                        controllers.HomeController.home
 GET         /listing                                 controllers.HomeController.listing
 GET         /form                                    controllers.HomeController.form
+POST        /form                                    controllers.HomeController.form
 
 
 GET         /ping                                    controllers.HomeController.ping(timestamp: Long)
