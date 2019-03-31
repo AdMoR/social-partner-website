@@ -1,9 +1,10 @@
-GET         /test                                    controllers.HomeController.old_home
-GET         /popo                                    controllers.HomeController.popo
+GET         /about                                    controllers.HomeController.about
 GET         /                                        controllers.HomeController.home
-GET         /listing                                 controllers.HomeController.listing
-GET         /form                                    controllers.HomeController.form
-POST        /form                                    controllers.HomeController.form
+
+
+GET         /listings                                 controllers.EventController.listing
+GET         /form                                    controllers.EventController.form
+POST        /form                                    controllers.EventController.submit
 
 
 GET         /ping                                    controllers.HomeController.ping(timestamp: Long)

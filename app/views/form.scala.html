@@ -1,13 +1,19 @@
-@(eventForm: Form[models.objects.Event])(implicit request: RequestHeader, messagesProvider: MessagesProvider)
+@(eventForm: Form[models.objects.Event], tags: List[String] = List("Mentoring", "Soutien Scolaire"))(implicit request: RequestHeader, messagesProvider: MessagesProvider)
 
 @import helper._
 
 @main("Créer un événement"){
 
 <div class="center-block text-center">
-  @helper.form(routes.HomeController.form) {
-    @helper.inputText(eventForm("name")) @* <- takes a MessagesProvider *@
-    @helper.inputText(eventForm("age"))  @* <- takes a MessagesProvider *@
+  @helper.form(routes.EventController.submit) {
+    @helper.inputText(eventForm("title"), 'class -> "form-control", '_label -> "Titre") @* <- takes a MessagesProvider *@
+    @helper.inputText(eventForm("description"))  @* <- takes a MessagesProvider *@
+    @helper.inputText(eventForm("groupName"))  @* <- takes a MessagesProvider *@
+    @helper.inputText(eventForm("eventType"))  @* <- takes a MessagesProvider *@
+    <!-- @helper.inputRadioGroup(eventForm("tags"), Seq("Mentoring" -> "mentoring", "Soutien scolaire" -> "scolaire"), '_label -> "Catégorie") -->
+  @helper.inputCheckboxGroup(eventForm("tags"), Seq("Mentoring" -> "mentoring", "Soutien scolaire" -> "scolaire"))
+
+  <button type="submit">Submit</button>
   }
 </div>
 
