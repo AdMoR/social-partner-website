@@ -24,8 +24,6 @@
 					<div class="row justify-content-center d-flex">
 						<div class="col-lg-8 post-list">
 
-							@components.single_post()
-							@components.single_post()
 							@for(event <- events){
 							    @components.single_post(title=event.title, description=event.description, tags=event.tags, groupName=event.groupName, eventType=event.eventType)
 							}
