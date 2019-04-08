@@ -1,0 +1,11 @@
+@(event: models.objects.Event)
+
+
+@main_block(event.title, event.title, Seq("background.svg"), false){
+
+<div class="col-lg-6 mx-auto text-center">
+    @event.description
+</div>
+
+
+}

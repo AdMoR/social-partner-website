@@ -4,17 +4,19 @@
 
 @main("Créer un événement"){
 
-<div class="center-block text-center">
-  @helper.form(routes.EventController.submit) {
-    @helper.inputText(eventForm("title"), 'class -> "form-control", '_label -> "Titre") @* <- takes a MessagesProvider *@
-    @helper.inputText(eventForm("description"))  @* <- takes a MessagesProvider *@
-    @helper.inputText(eventForm("groupName"))  @* <- takes a MessagesProvider *@
-    @helper.inputText(eventForm("eventType"))  @* <- takes a MessagesProvider *@
-    <!-- @helper.inputRadioGroup(eventForm("tags"), Seq("Mentoring" -> "mentoring", "Soutien scolaire" -> "scolaire"), '_label -> "Catégorie") -->
-  @helper.inputCheckboxGroup(eventForm("tags"), Seq("Mentoring" -> "mentoring", "Soutien scolaire" -> "scolaire"))
 
-  <button type="submit">Submit</button>
-  }
-</div>
+    <div class="col-lg-6 mx-auto text-center">
+    @helper.form(routes.EventController.submit) {
+
+      @helper.inputText(eventForm("title"), 'class -> "form-control", '_label -> "Titre") @* <- takes a MessagesProvider *@
+      @helper.inputText(eventForm("description"), 'class -> "form-control", '_label -> "Description")  @* <- takes a MessagesProvider *@
+      @helper.inputText(eventForm("groupName"), 'class -> "form-control", '_label -> "Nom du Groupe")  @* <- takes a MessagesProvider *@
+      @helper.inputText(eventForm("eventType"), 'class -> "form-control", '_label -> "Type d'évenement")  @* <- takes a MessagesProvider *@
+      <!-- @helper.inputRadioGroup(eventForm("tags"), Seq("Mentoring" -> "mentoring", "Soutien scolaire" -> "scolaire"), '_label -> "Catégorie") -->
+      @helper.inputCheckboxGroup(eventForm("tags"), Seq("Mentoring" -> "mentoring", "Soutien scolaire" -> "scolaire"))
+      <button type="submit">Submit</button>
+      }
+    </div>
+
 
 }

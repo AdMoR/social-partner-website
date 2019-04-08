@@ -3,7 +3,7 @@ GET         /                                        controllers.HomeController.
 
 
 GET         /events                                  controllers.EventController.listings
-GET         /event/:user_id                          controllers.EventController.listing(user_id)
+GET         /event/:user_id                          controllers.EventController.event(user_id)
 GET         /form                                    controllers.EventController.form
 POST        /form                                    controllers.EventController.submit
 

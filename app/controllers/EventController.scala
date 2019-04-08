@@ -40,6 +40,10 @@ class EventController @javax.inject.Inject() (override val app: Application, mes
     Future.successful(Ok(views.html.category(List(events { userId.toLong }))))
   }
 
+  def event(userId: String) = withoutSession("") { implicit request => implicit td =>
+    Future.successful(Ok(views.html.event_page(events { userId.toLong })))
+  }
+
   def form() = withoutSession("") { implicit request => implicit td =>
     eventCounter += 1
     Future.successful(Ok(views.html.form(eventForm)))
