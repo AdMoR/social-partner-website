@@ -8,14 +8,18 @@
 - Install postgres server (brew install , start it and execute 
 ```
 pg_ctl -D /usr/local/var/postgres start
-psql -U boilerplay --password
-\c boilerplay
-\dt
+psql postgres
 ```
 ```
 CREATE ROLE boilerplay WITH LOGIN PASSWORD 'boilerplay';
 CREATE DATABASE boilerplay;
 GRANT ALL PRIVILEGES ON DATABASE boilerplay TO boilerplay;
+```
+Afterward you should be able to do
+```
+psql -U boilerplay --password
+\c boilerplay
+\dt
 ```
 - From the project directory, start the sbt shell 
 ```
