@@ -2,11 +2,11 @@
 @import play.api.i18n.{Messages, MessagesProvider}
 @import play.api.mvc._
 
-@(eventForm: Form[models.events.Event], tags: List[String] = List("Mentoring", "Soutien Scolaire"))(implicit request: RequestHeader, messagesProvider: MessagesProvider)
+@(eventForm: Form[models.events.Event], tags: List[String] = List("Mentoring", "Soutien Scolaire"), user: Option[models.User] = null)(implicit request: RequestHeader, messagesProvider: MessagesProvider)
 
 @import helper._
 
-@main("Créer un événement"){
+@main("Créer un événement", user){
 
 
     <div class="col-lg-6 mx-auto text-center">

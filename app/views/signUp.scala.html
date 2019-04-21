@@ -10,7 +10,7 @@
 @implicitFieldConstructor = @{ b3.vertical.fieldConstructor() }
 
 @auth_main(messages("sign.up.title")) {
-    <fieldset class="col-md-6">
+    <fieldset class="col-md-6 mx-auto text-center">
         <legend>@messages("sign.up.account")</legend>
         @helper.form(action = controllers.routes.SignUpController.submit()) {
             @helper.CSRF.formField

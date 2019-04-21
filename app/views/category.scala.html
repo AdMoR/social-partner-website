@@ -1,6 +1,6 @@
-@(events: List[models.events.Event])
+@(events: List[models.events.Event], user: Option[models.User] = None)
 
-@main("Evénements"){
+@main_block("Evénements", "Evénements", Seq("background.svg"), false, user){
 
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">

@@ -1,4 +1,4 @@
-@(is_menu: Boolean = true)
+@(is_menu: Boolean = true, user: Option[models.User] = None)
 
 
 
@@ -42,8 +42,16 @@
       <div class="add_listing text-center trans_200"><a href="/form">+ Evénement</a></div>
       <div class="log_reg">
         <ul class="d-flex flex-row align-items-center justify-content-start">
-          <li><a href="/signIn">S'identifier</a></li>
-          <li><a href="/signUp">S'enregistrer</a></li>
+          @user match {
+            case Some(user) => {
+              <li><a href="/signOut">Se déconnecter</a></li>
+            }
+            case None => {
+              <li><a href="/signIn">S'identifier</a></li>
+              <li><a href="/signUp">S'enregistrer</a></li>
+            }
+
+          }
         </ul>
       </div>
       <div class="hamburger">

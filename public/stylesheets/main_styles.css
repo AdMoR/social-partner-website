@@ -640,6 +640,12 @@ section
 	background: #360f64;
 	overflow: hidden;
 }
+.home_small
+{
+	height: 120px;
+	background: #360f64;
+	overflow: hidden;
+}
 .home_slider_container
 {
 	width: 100%;

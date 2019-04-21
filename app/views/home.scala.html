@@ -6,7 +6,7 @@
 
 @(user: Option[models.User] = None)(implicit request: Request[AnyContent], session: Session, flash: Flash)
 
-@main("Index"){
+@main_block("Index", "Animez votre communauté !", Seq("2947.jpg"), false, user){
 
 <!-- Categories -->
 

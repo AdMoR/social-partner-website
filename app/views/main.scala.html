@@ -4,7 +4,7 @@
 @import org.webjars.play.WebJarsUtil
 @import controllers.AssetsFinder
 
-@(title: String = "")(content: Html)
+@(title: String = "", user: Option[models.User] = null)(content: Html)
 
-@main_block(title, "Animez votre communauté !", Seq("2947.jpg"), false)(content)
+@main_block(title, "Animez votre communauté !", Seq("2947.jpg"), false, user)(content)
 

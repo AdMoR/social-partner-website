@@ -6,6 +6,6 @@
 
 @(user: Option[models.User] = None)(implicit request: Request[AnyContent], session: Session, flash: Flash)
 
-@main("Nouvel événement"){
+@main_block("Nouvel événement", "Nouvel événement", Seq("background.svg"), false, user){
 
 }

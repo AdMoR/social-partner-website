@@ -4,7 +4,7 @@
 @import org.webjars.play.WebJarsUtil
 @import controllers.routes
 
-@(title: String, catch_phrase: String = "Animez votre communauté !", image_paths: Seq[String] = null, hasSearch: Boolean = false)(content: Html)
+@(title: String, catch_phrase: String = "Animez votre communauté !", image_paths: Seq[String] = null, hasSearch: Boolean = false, user: Option[models.User] = None)(content: Html)
 
 
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
 
 <div class="super_container">
 
-    @components.menu(false)
+    @components.menu(false, user)
 
     <div class="super_container_inner">
         <div class="super_overlay"></div>
@@ -38,9 +38,7 @@
         @if(image_paths != null){
         @components.top_view(catch_phrase, hasSearch, image_paths)
         }else{
-        <div class="home">
-            <div class="home_slider_container">
-            </div>
+        <div class="home_small">
         </div>
         }
 

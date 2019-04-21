@@ -36,20 +36,20 @@ class EventController @Inject() (
   )
 
   def listings() = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
-    Future.successful(Ok(views.html.category(events.values.toList)))
+    Future.successful(Ok(views.html.category(events.values.toList, Option(request.identity))))
   }
 
   def listing(userId: String) = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
-    Future.successful(Ok(views.html.category(List(events { userId.toLong }))))
+    Future.successful(Ok(views.html.category(List(events { userId.toLong }), Option(request.identity))))
   }
 
   def event(userId: String) = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
-    Future.successful(Ok(views.html.event_page(events { userId.toLong })))
+    Future.successful(Ok(views.html.event_page(events { userId.toLong }, Option(request.identity))))
   }
 
   def form() = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     eventCounter += 1
-    Future.successful(Ok(views.html.form(eventForm)))
+    Future.successful(Ok(views.html.form(eventForm, user = Option(request.identity))))
   }
 
   def submit = Action { implicit request =>

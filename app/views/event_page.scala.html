@@ -1,7 +1,7 @@
-@(event: models.events.Event)
+@(event: models.events.Event, user: Option[models.User] = None)
 
 
-@main_block(event.title, event.title, Seq("background.svg"), false){
+@main_block(event.title, event.title, Seq("background.svg"), false, user){
 
 
 <div class="eventPageHead stripe">
