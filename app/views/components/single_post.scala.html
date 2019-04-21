@@ -1,0 +1,38 @@
+@import play.api.i18n.Messages
+@import play.api.mvc.RequestHeader
+@import play.twirl.api.Html
+@import org.webjars.play.WebJarsUtil
+@import controllers.AssetsFinder
+
+
+@(title: String = "Séance d'entraide scolaire", description: String = "Soutien scolaire sur le thème de la rigolade et du théorème de Pythagore", groupName: String = "Le groupe d'entraide des Lilas", tags: Seq[String] = Seq("Soutien scolaire", "Paris"), eventType: String = "Mentoring")
+
+<div class="single-post d-flex flex-row">
+    <div class="thumb">
+        <img src="Assets.versioned("images/client_1.jpg")" alt="">
+        <ul class="tags">
+            @for(tag <- tags){
+            <li>
+                <a href="#">@tag</a>
+            </li>
+            }
+        </ul>
+    </div>
+    <div class="details">
+        <div class="title d-flex flex-row justify-content-between">
+            <div class="titles">
+                <a href="single.html"><h4>@title</h4></a>
+                <h6>@groupName</h6>
+            </div>
+            <ul class="btns">
+                <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                <li><a href="#">Rejoindre</a></li>
+            </ul>
+        </div>
+        <p>
+            @description
+        </p>
+        <h5>Type d'événement: @eventType</h5>
+        <p class="address"><span class="lnr lnr-map"></span> 123 rue bidon</p>
+    </div>
+</div>

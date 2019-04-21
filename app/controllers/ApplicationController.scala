@@ -1,13 +1,14 @@
 package controllers
 
+import com.mohiva.play.silhouette.api.actions.UserAwareAction
 import javax.inject.Inject
-
 import com.mohiva.play.silhouette.api.actions.SecuredRequest
 import com.mohiva.play.silhouette.api.{ LogoutEvent, Silhouette }
 import org.webjars.play.WebJarsUtil
 import play.api.i18n.I18nSupport
 import play.api.mvc.{ AbstractController, AnyContent, ControllerComponents }
 import utils.auth.DefaultEnv
+import play.twirl.api.Html
 
 import scala.concurrent.Future
 
@@ -33,8 +34,8 @@ class ApplicationController @Inject() (
    *
    * @return The result to display.
    */
-  def index = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
-    Future.successful(Ok(views.html.home(request.identity)))
+  def index = Action.async { implicit request =>
+    Future.successful(Ok(views.html.home(None)))
   }
 
   /**

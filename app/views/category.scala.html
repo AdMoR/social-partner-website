@@ -1,0 +1,87 @@
+@(events: List[models.events.Event])
+
+@main("Evénements"){
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-purple">
+								Tous les événements
+							</h1>
+
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+			
+			<!-- Start post Area -->
+			<section class="post-area section-gap">
+				<div class="container">
+					<div class="row justify-content-center d-flex">
+						<div class="col-lg-8 post-list">
+
+							@for(event <- events){
+							    @components.single_post(title=event.title, description=event.description, tags=event.tags, groupName=event.groupName, eventType=event.eventType)
+							}
+
+						</div>
+						<div class="col-lg-4 sidebar">
+
+							@components.side_categories()
+							@components.side_categories(Seq("Scolaire", "Coaching", "Networking"), "Par activité")
+
+
+                            <!-- <div class="single-slidebar">
+                                <h4>Top rated job posts</h4>
+                                <div class="active-relatedjob-carusel">
+                                    <div class="single-rated">
+                                        <img class="img-fluid" src="img/r1.jpg" alt="">
+                                        <a href="single.html"><h4>Creative Art Designer</h4></a>
+                                        <h6>Premium Labels Limited</h6>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
+                                        </p>
+                                        <h5>Job Nature: Full time</h5>
+                                        <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
+                                        <p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
+                                        <a href="#" class="btns text-uppercase">Apply job</a>
+                                    </div>
+                                    <div class="single-rated">
+                                        <img class="img-fluid" src="img/r1.jpg" alt="">
+                                        <a href="single.html"><h4>Creative Art Designer</h4></a>
+                                        <h6>Premium Labels Limited</h6>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
+                                        </p>
+                                        <h5>Job Nature: Full time</h5>
+                                        <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
+                                        <p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
+                                        <a href="#" class="btns text-uppercase">Apply job</a>
+                                    </div>
+                                    <div class="single-rated">
+                                        <img class="img-fluid" src="img/r1.jpg" alt="">
+                                        <a href="single.html"><h4>Creative Art Designer</h4></a>
+                                        <h6>Premium Labels Limited</h6>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
+                                        </p>
+                                        <h5>Job Nature: Full time</h5>
+                                        <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
+                                        <p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
+                                        <a href="#" class="btns text-uppercase">Apply job</a>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+
+                        </div>
+					</div>
+				</div>	
+			</section>
+			<!-- End post Area -->
+
+}

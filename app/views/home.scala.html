@@ -1,35 +1,211 @@
 @import play.api.i18n.Messages
-@import play.api.mvc.RequestHeader
+@import play.api.mvc._
+@import play.twirl.api.Html
 @import org.webjars.play.WebJarsUtil
-@import controllers.AssetsFinder
+@import controllers.routes
 
-@(user: models.User)(implicit request: RequestHeader, messages: Messages, webJarsUtil: WebJarsUtil, assets: AssetsFinder)
+@(user: Option[models.User] = None)(implicit request: Request[AnyContent], session: Session, flash: Flash)
 
-@main(messages("home.title"), Some(user)) {
-    <div class="user col-md-6 col-md-offset-3">
-        <div class="row">
-            <hr class="col-md-12" />
-            <h4 class="col-md-8">@messages("welcome.signed.in")</h4>
-            <div class="col-md-4 text-right">
-                <img src="@user.avatarURL.getOrElse(assets.path("images/silhouette.png"))" height="40px" />
-            </div>
-            <hr class="col-md-12" />
+@main("Index"){
+
+<!-- Categories -->
+
+<div class="categories">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="categories_container d-flex flex-md-row flex-column align-items-start justify-content-start">
+
+          <!-- Category -->
+          <div class="category text-center">
+            <a href="listings.html">
+              <div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
+                <div class="cat_icon"><img src="@routes.Assets.versioned("images/icon_1.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
+                <div class="cat_title">Mentoring</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Category -->
+          <div class="category text-center">
+            <a href="listings.html">
+              <div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
+                <div class="cat_icon"><img src="@routes.Assets.versioned("images/binoculars.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
+                <div class="cat_title">Orientation</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Category -->
+          <div class="category text-center">
+            <a href="listings.html">
+              <div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
+                <div class="cat_icon"><img src="@routes.Assets.versioned("images/mountain.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
+                <div class="cat_title">Carrière</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Category -->
+          <div class="category text-center">
+            <a href="listings.html">
+              <div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
+                <div class="cat_icon"><img src="@routes.Assets.versioned("images/mortarboard.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
+                <div class="cat_title">Tutoriaux</div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Category -->
+          <div class="category text-center">
+            <a href="listings.html">
+              <div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
+                <div class="cat_icon"><img src="@routes.Assets.versioned("images/icon_5.svg")" class="svg" alt="https://www.flaticon.com/authors/monkik"></div>
+                <div class="cat_title">Culture</div>
+              </div>
+            </a>
+          </div>
+
         </div>
-        <div class="row data">
-            <div class="col-md-12">
-                <div class="row">
-                    <p class="col-md-6"><strong>@messages("first.name"):</strong></p><p class="col-md-6">@user.firstName.getOrElse("None")</p>
-                </div>
-                <div class="row">
-                    <p class="col-md-6"><strong>@messages("last.name"):</strong></p><p class="col-md-6">@user.lastName.getOrElse("None")</p>
-                </div>
-                <div class="row">
-                    <p class="col-md-6"><strong>@messages("full.name"):</strong></p><p class="col-md-6">@user.fullName.getOrElse("None")</p>
-                </div>
-                <div class="row">
-                    <p class="col-md-6"><strong>@messages("email"):</strong></p><p class="col-md-6">@user.email.getOrElse("None")</p>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- Locations -->
+
+<div class="locations container_custom">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section_title text-center"><h1>Trouve ta communauté</h1></div>
+        <div class="locations_container d-flex flex-row align-items-start justify-content-between flex-wrap">
+
+          <!-- Location -->
+          <div class="location">
+            <img src="@routes.Assets.versioned("images/location_1.jpg")" alt="">
+            <div class="location_title text-center"><div><a href="single.html">Montélimar<div>+</div></a></div></div>
+          </div>
+
+          <!-- Location -->
+          <div class="location">
+            <img src="@routes.Assets.versioned("images/location_2.jpg")" alt="">
+            <div class="location_title text-center"><div><a href="single.html">Paris<div>+</div></a></div></div>
+          </div>
+
+          <!-- Location -->
+          <div class="location">
+            <img src="@routes.Assets.versioned("images/location_3.jpg")" alt="">
+            <div class="location_title text-center"><div><a href="single.html">Lille<div>+</div></a></div></div>
+          </div>
+
+          <!-- Location -->
+          <div class="location">
+            <img src="@routes.Assets.versioned("images/location_4.jpg")" alt="">
+            <div class="location_title text-center"><div><a href="single.html">Strasbourg<div>+</div></a></div></div>
+          </div>
+
+          <!-- Location -->
+          <div class="location">
+            <img src="@routes.Assets.versioned("images/location_5.jpg")" alt="">
+            <div class="location_title text-center"><div><a href="single.html">Argenteuil<div>+</div></a></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- How it works -->
+
+<div class="how container_custom">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section_title text-center"><h1>Social <span>Partner</span> en 3 étapes</h1></div>
+        <div class="icon_box_container d-flex flex-row align-items-start justify-content-between flex-wrap">
+
+          <!-- Icon Box -->
+          <div class="icon_box d-flex flex-column align-items-center justify-content-start text-center">
+            <div class="icon_box_num">01.</div>
+            <div class="icon_box_icon"><img src="@routes.Assets.versioned("images/icon_6.svg")" alt="https://www.flaticon.com/authors/monkik"></div>
+            <div class="icon_box_title">Trouve ta communauté</div>
+            <div class="icon_box_text">
+              <p>Trouve une communauté près de chez toi et suis leurs événements.</p>
+            </div>
+          </div>
+
+          <!-- Icon Box -->
+          <div class="icon_box d-flex flex-column align-items-center justify-content-start text-center">
+            <div class="icon_box_num">02.</div>
+            <div class="icon_box_icon"><img src="@routes.Assets.versioned("images/icon_7.svg")" alt="https://www.flaticon.com/authors/monkik"></div>
+            <div class="icon_box_title">Inscris toi à un événement</div>
+            <div class="icon_box_text">
+              <p>Inscris toi à une de leurs actions et aies un vrai impact.</p>
+            </div>
+          </div>
+
+          <!-- Icon Box -->
+          <div class="icon_box d-flex flex-column align-items-center justify-content-start text-center">
+            <div class="icon_box_num">03.</div>
+            <div class="icon_box_icon"><img src="@routes.Assets.versioned("images/icon_8.svg")" alt="https://www.flaticon.com/authors/monkik"></div>
+            <div class="icon_box_title">Interviens !</div>
+            <div class="icon_box_text">
+              <p>Sois part du changement en t'impliquand directement sur l'évément.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA
+
+<div class="cta container_custom">
+  <div class="parallax_background" data-image-src="@routes.Assets.versioned("images/cta.jpg")"></div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="cta_content">
+        <div class="cta_title"><h1>Find the best places in town!</h1></div>
+        <div class="cta_text">
+          <p>Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper neque. Suspendisse quam est, consequat ullamcorper tellus et, fauci bus laoreet nibh.</p>
+        </div>
+        <div class="button cta_button"><a href="listings.html">See the list</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+-->
+
+<!-- CTA 2
+
+<div class="cta_2">
+  <div class="container">
+    <div class="row row-lg-eq-height">
+      <div class="col-lg-9 cta_2_col">
+        <div class="cta_2_content">
+          <div class="cta_2_title"><h1>Get the Directory<span>Plus+</span> App</h1></div>
+          <div class="cta_2_text">
+            <p>Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem. Quisque ut semper neque. Suspendisse quam est, consequat ullamcorper tellus et, fauci bus laoreet nibh.Donec cursus, risus non fermentum lacinia, felis lectus interdum velit, in pulvinar enim justo at sem.</p>
+          </div>
+          <div class="store_links d-flex flex-row align-items-start justify-content-start flex-wrap">
+            <div class="store_link"><a href="#"><img src="@routes.Assets.versioned("images/store_1.jpg")" alt=""></a></div>
+            <div class="store_link"><a href="#"><img src="@routes.Assets.versioned("images/store_2.jpg")" alt=""></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 cta_2_col">
+        <div class="cta_2_image">
+          <img src="@routes.Assets.versioned("images/cta_2.jpg")" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
 }
