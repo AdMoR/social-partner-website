@@ -10,7 +10,7 @@
 
 
     <div class="col-lg-6 mx-auto text-center">
-    @helper.form(controllers.routes.EventController.submit) {
+    @helper.form(helper.CSRF(controllers.routes.EventController.submit)) {
 
       @helper.inputText(eventForm("title"), 'class -> "form-control", '_label -> "Titre") @* <- takes a MessagesProvider *@
       @helper.inputText(eventForm("description"), 'class -> "form-control", '_label -> "Description")  @* <- takes a MessagesProvider *@

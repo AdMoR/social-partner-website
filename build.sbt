@@ -14,6 +14,8 @@ resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositor
 
 libraryDependencies ++= Seq(
   "com.mohiva" %% "play-silhouette" % "6.0.0-SNAPSHOT",
+  "org.postgresql" % "postgresql" % "9.4.1208",
+  "io.getquill" %% "quill-jdbc" % "3.1.0",
   "com.mohiva" %% "play-silhouette-password-bcrypt" % "6.0.0-SNAPSHOT",
   "com.mohiva" %% "play-silhouette-persistence" % "6.0.0-SNAPSHOT",
   "com.mohiva" %% "play-silhouette-crypto-jca" % "6.0.0-SNAPSHOT",
