@@ -30,14 +30,16 @@ class EventController @Inject() (
   }
   var eventCounter = ctx.run(q.size).toInt
   if (eventCounter == 0) {
-    val a = quote(query[Event].insert(lift(Event(0.toLong, "My first event", "Cool stuff", "Amicale scolaire", List("Entraide"), "Entraide"))))
+    val a = quote(
+      query[Event].insert(lift(Event(0.toLong, "My first event", "Cool stuff", "Amicale scolaire", List("Entraide"), "Entraide")))
+    )
     println(a)
     ctx.run(a)
   }
 
   val eventForm = Form(
     mapping(
-      "id" -> ignored(eventCounter.toLong),
+      "id" -> ignored(0.toLong),
       "title" -> nonEmptyText,
       "description" -> nonEmptyText,
       "groupName" -> text,
@@ -59,7 +61,7 @@ class EventController @Inject() (
       query[Event].filter(e => e.id == lift(userId).toLong).take(1)
     }
     val events = ctx.run(q)
-    println(events, userId)
+    println(events)
     Future.successful(Ok(views.html.category(events, Option(request.identity))))
   }
 
@@ -70,9 +72,11 @@ class EventController @Inject() (
   def submit = silhouette.SecuredAction.async { implicit request =>
     eventCounter += 1
     val event = eventForm.bindFromRequest.get
-    val a = quote(query[Event].insert(lift(event)))
-    println(a)
-    ctx.run(a)
+    val eventInsert = quote {
+      query[Event].insert(lift(event)).returning(_.id)
+    }
+    println(eventInsert)
+    ctx.run(eventInsert)
     Future.successful(Redirect(s"event/${eventCounter.toString}"))
   }
 
